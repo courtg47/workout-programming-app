@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Green Machine Exercise Catalog</title>
+
+  <!-- Adding in Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu" rel="stylesheet">
+
+  <!-- Setting the viewport for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Linking CSS Stylesheet -->
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//apis.google.com/js/platform.js?onload=start"></script>
+  <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+
+  <!-- External Javascript file -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+</head>
+
+<body>
+
+  <main class="signin-main">
+
+    <h2 class="signin-title disclaimer">Please Sign In to Continue</h2>
+
+    <h3 class="gsignin-title">Sign In with Google</h3>
+
+    <!-- Google Sign In Button -->
+    <div class="g-signin" id="signinButton">
+      <span class="g-signin"
+        data-scope="openid email"
+        data-clientid="882015865235-p3ncposn7ju8mvktoe7k9rumcer8o9lo.apps.googleusercontent.com"
+        data-redirecturi="postmessage"
+        data-accesstype="offline"
+        data-cookiepolicy="single_host_origin"
+        data-callback="signInCallback"
+        data-approvalprompt="force">
+      </span>
+    </div>
+    <!-- End Google Sign In Button -->
+
+    <!-- Privacy Disclaimer -->
+    <p class="disclaimer-text disclaimer">We will only access your username, profile photo,
+                        and first name for the purposes of logging you in.</p>
+
+    <!-- If login is successful, login info will be posted here -->
+    <section id="result"></section>
+
+    <!-- Return to Homepage -->
+    <form  action="{{ url_for('homepage') }}">
+      <input class="go-back" type='submit' value="Home">
+    </form>
+
+  </main>
+
+</body>
+
+</html>

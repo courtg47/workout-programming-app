@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Green Machine Exercises</title>
+
+  <!-- Adding in Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu" rel="stylesheet">
+
+  <!-- Setting the viewport for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Linking CSS Stylesheet -->
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+  <main class="signin-main">
+    <!--Displays first name and profile picture of user. Redirects to homepage -->
+    <h1>Welcome {{ first_name }}!</h1>
+    <img src="{{ picture }}" class="profile-picture" alt="{{ first_name }}">
+
+  </main>
+
+</body>
+
+</html>

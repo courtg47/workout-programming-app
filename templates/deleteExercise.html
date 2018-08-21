@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>The Green Machine Exercise Catalog - Home</title>
+
+  <!-- Adding in Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu" rel="stylesheet">
+
+  <!-- Setting the viewport for responsiveness -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Linking CSS Stylesheet -->
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+  <main class="signin-main">
+
+    <h1>Delete {{ exercise_name }}</h1>
+    <h3>Are you sure you want to delete {{ exercise_name }}?</h3>
+
+    <!-- Button to delete exercise  -->
+    <form action='#' method='post'>
+      <input class="button-styling delete-exercise" type='submit' value='Yes, Please Delete'>
+    </form>
+
+    </br>
+    </br>
+
+    <!-- Button to Cancel and return to the previous page  -->
+    <a class="cancel-button" href='{{ url_for('show_exercise_description',
+                      primary_category_id = primary_category_id,
+                      secondary_id = secondary_id,
+                      exercise_name = exercise_name)
+                      .replace('%20','-') }}'>No, Please Cancel</a>
+
+  </main>
+
+</body>
+</html>

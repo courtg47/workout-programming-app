@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>The Green Machine Exercise Catalog - Home</title>
+
+  <!-- Adding in Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu" rel="stylesheet">
+
+  <!-- Setting the viewport for responsiveness -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Linking CSS Stylesheet -->
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+  <!-- This is the header used across all pages of the app -->
+  <header class="header-container">
+
+    <!-- Main Title -->
+    <h1 class="title">The Green Machine Exercise Catalog</h1>
+
+    <!-- Dynamic Login and logout buttons in Nav bar depending on if user is logged in -->
+    <nav class="nav-main">
+      <ul class="nav-container">
+
+        {% if 'username' not in session %}
+        <!--If not logged in, show Login button -->
+        <li class="login-button login-logout"><a href="{{ url_for('login') }}">LOGIN</a></li>
+
+        {% else %}
+        <!--If logged in, show First Name and Logout button -->
+        <li class="welcome-name">Welcome {{ first_name }}!</li>
+        <li class="login-logout"><a href="{{ url_for('gdisconnect') }}">LOGOUT</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+  </header>
+
+
+  <main class="main-body">
+
+    <!-- Show any flashed messages -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <p class="flashed-messages"><strong>{{ message }}</strong></p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <!-- End flashed messages -->
+
+    <!-- Display all Primary Categories with description, picture, and a name/link -->
+    <div class="flex-grid">
+      {% for i in category_names %}
+      <section class="flex-container category-container">
+        <p class="categories"><a href="{{ url_for('show_secondary_categories', primary_category_id = i.id) }}">{{ i.name }}</a></p>
+        </br>
+        <img src="{{ url_for('static', filename='' + i.picture ) }}" alt="{{ i.name }}" class="photo">
+        </br>
+        <p class="categories">{{ i.description }}.</p>
+        </br>
+      </section>
+      {% endfor %}
+    </div>
+    <!-- End Categories -->
+
+  </main>
+
+</body>
+</html>

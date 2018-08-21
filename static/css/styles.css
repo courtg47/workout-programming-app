@@ -1,0 +1,585 @@
+/* Starts with Homepage styling.
+Assumes mobile version and applies media queries
+for the tablet and desktop versions. */
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #fbfcfd;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  font-size: 81.25%;
+}
+
+/* Header containing the title and nav bar */
+.header-container {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  background-color: #010f02;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* The main title of the app */
+.title {
+  font-family: 'Orbitron', sans-serif;
+  color: #04ef21;
+  font-size: 30px;
+}
+
+.nav-main {
+  margin: 1.5em 0 0 5%;
+  background-color: #010f02;
+}
+
+/* The ul structure of the main nav bar */
+.nav-container {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  height: 50px;
+  background-color: #010f02;
+  padding: 0;
+  list-style: none
+}
+
+/* The buttons of the nav bar */
+.nav-container > li {
+  flex-basis: 100%;
+  padding: 0 1.4em 0 0;
+  font-size: 16px;
+}
+
+/* Any buttons with a link (login/logout)*/
+.nav-container li a {
+  text-decoration: none;
+}
+
+/* Both login and logout buttons */
+.login-logout a {
+  font-size: 18px;
+  background-color: #fbfcfd;
+  padding: 1em 2em;
+  color: #010f02;
+  transition: all 0.2s ease 0s;
+  border: 1px solid #fbfcfd;
+  cursor: pointer;
+}
+
+.login-logout a:hover {
+  color: #04ef21;
+  background-color: #010f02;
+}
+
+/* Only the login button */
+.login-button {
+  margin-top: 7%;
+}
+
+/* Welcome the user when they login with their name */
+.welcome-name {
+  background-color: #010f02;
+  flex: 1;
+  font-size: 14px;
+  padding: 1em 2em;
+  margin-top: -7%;
+  margin-bottom: 7%;
+  color: white;
+  transition: all 0.2s ease 0s;
+}
+
+/* Main body of most pages, exluding login/logout pages */
+.main-body {
+  margin-top: 60%;
+}
+
+/* Any flashed messages if a user edited an exercise */
+.flashed-messages {
+  font-size: 16px;
+}
+
+/* The flex properties of each individual category */
+.flex-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Other styling of each individual category */
+.category-container {
+  border-bottom: 2px solid #5a5e5a;
+  margin: 3%;
+}
+
+/* Styling the text of each category */
+.categories {
+  list-style-type: none;
+  font-size: 18px;
+}
+
+/* The name/link of each category */
+.categories a {
+  font-size: 20px;
+  color: #045def;
+  text-decoration: none;
+}
+
+.categories a:hover {
+  color: #EF2104;
+  transition: all 0.5s ease 0s;
+}
+
+/* Image of each primary category */
+.photo {
+  margin-right: auto;
+  margin-left: auto;
+  width: 75%;
+  height: auto;
+}
+
+/* SECONDARY.HTML PAGE */
+/* Subcategory Title */
+.title-secondary {
+  margin: 1em;
+  font-size: 22px;
+  color: #5a5e5a;
+}
+
+/* List of subcategories with name and description */
+.secondary-categories {
+  margin: 2%;
+}
+
+/* Go Back button for navigation */
+.go-back {
+  margin: 2%;
+  background-color: #fbfcfd;
+  color: #010f02;
+  font-weight: bold;
+  padding: 0.5em 2em;
+  font-size: 16px;
+  transition: all 0.2s ease 0s;
+  border: 2px solid #04ef21;
+  cursor: pointer;
+}
+
+.go-back:hover {
+  color: #fbfcfd;
+  background-color: #04ef21;
+}
+
+/* EXERCISES.HTML PAGE */
+/* Applying styles only to edit, delete, and add buttons */
+.button-styling {
+  background-color: #EF2104;
+  color: #fbfcfd;
+  font-weight: bold;
+  padding: 0.5em 2em;
+  font-size: 16px;
+  transition: all 0.2s ease 0s;
+  border: 2px solid #fbfcfd;
+  cursor: pointer;
+}
+
+.button-styling:hover {
+  background-color: #D11D04;
+}
+
+/* Only the Add exercise button */
+.add-button {
+  margin: 2%;
+}
+
+/* PUBLICEXERCISEDESCRIPTION.HTML PAGE */
+/* Main section housing the name, video, and description of exercise */
+.exercise-main {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5em;
+  width: 80%;
+}
+
+/* Embedded YouTube video */
+.embed-video {
+  width: 100%;
+  height: auto;
+}
+
+/* Exercise description */
+.description {
+  text-align: left;
+  font-size: 16px;
+}
+
+/* EXERCISEDESCRIPTION.HTML PAGE */
+/* Edit exercise button */
+.edit-exercise {
+  margin-bottom: 4%;
+}
+
+/* Delete exercise button */
+.delete-exercise {
+  margin: 2%;
+}
+
+/* Applying flexbox to edit and delete exercise buttons */
+.edit-delete-buttons {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 2%;
+  justify-content: space-around;
+}
+
+/* ADDEXERCISE.HTML PAGE */
+/* Form to add and edit exercises*/
+.add-edit-forms {
+  margin: 5%;
+}
+
+/* Field descriptions of forms */
+.add-form p {
+  font-size: 18px;
+}
+
+/* Form text boxes */
+.form-fields {
+  width: 85%;
+  border: 1px solid #5a5e5a;
+  border-radius: 2px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Submit button of forms */
+.form-button {
+  margin: 2%;
+  margin-top: 5%;
+}
+
+/* Link to cancel */
+.cancel-button {
+  font-size: 18px;
+  padding-bottom: 5%;
+}
+
+/* Text alerting user where to find correct YouTube embed URL */
+.embed-notes {
+  margin: 5%;
+}
+
+/* LOGIN.HTML PAGE */
+/* Main body just for sign-in pages */
+.signin-main {
+  margin: 2%;
+}
+
+.disclaimer-text {
+  font-size: 16px;
+}
+
+/* GCONNECT.HTML PAGE */
+/* Profile picture taken from Google Sign In*/
+.profile-picture {
+  width: 40%;
+  height: auto;
+  border-radius: 5%;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+}
+
+
+/* Tablet Version */
+@media screen and (min-width: 750px) {
+  .title {
+    font-size: 50px;
+  }
+
+  .welcome-name {
+    font-size: 22px;
+  }
+
+  .login-logout a {
+    font-size: 24px;
+  }
+
+  .login-button {
+    margin-top: 3%;
+  }
+
+  .main-body {
+    margin-top: 40%;
+  }
+
+  .categories {
+    font-size: 30px;
+  }
+
+  .categories a {
+    font-size: 34px;
+  }
+
+  /* SECONDARY.HTML page */
+  /* Subcategory Title */
+  .title-secondary {
+    margin: 3em;
+    font-size: 30px;
+  }
+
+  /* Go Back button for navigation */
+  .go-back {
+    margin: 2%;
+    font-size: 18px;
+  }
+
+  /* EXERCISES.HTML PAGE */
+  .add-button {
+    font-size: 18px;
+  }
+
+  /* PUBLICEXERCISEDESCRIPTION.HTML PAGE */
+  .exercise-main {
+    padding: 1.5em;
+    font-size: 28px;
+  }
+
+  .embed-video {
+    width: 560px;
+    height: 315px;
+  }
+
+  .description {
+    font-size: 24px;
+  }
+
+  /* EXERCISEDESCRIPTION.HTML PAGE */
+  .edit-exercise {
+    font-size: 16px;
+  }
+
+  .delete-exercise {
+    font-size: 16px;
+  }
+
+  /* ADDEXERCISE.HTML PAGE */
+  .add-edit-forms p {
+    font-size: 22px;
+  }
+
+  .form-fields {
+    width: 75%;
+  }
+
+  .add-button {
+    margin-top: 8%;
+  }
+
+  .cancel-button {
+    font-size: 20px;
+  }
+
+  /* LOGIN.HTML PAGE */
+  .signin-main {
+    margin: 5%;
+  }
+
+  .disclaimer-text {
+    font-size: 20px;
+  }
+
+}
+
+/* Desktop Version */
+@media screen and (min-width: 1020px) {
+  .header-container {
+    height: 150px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-bottom: 0;
+  }
+
+  .title {
+    align-self: flex-end;
+    margin-bottom: 1%;
+  }
+
+  .nav-main {
+    align-self: flex-end;
+    margin: 0 1em 0 0;
+  }
+
+  .nav-container {
+    align-self: center;
+    flex-wrap: nowrap;
+  }
+
+  .nav-container li {
+    padding: 1em 2em;
+    flex-basis: auto;
+    margin-right: 1em;
+  }
+
+  .welcome-name {
+    margin-top: 3%;
+    font-size: 12px;
+  }
+
+  .login-logout {
+    margin-bottom: 0;
+    margin-top: 5%;
+  }
+
+  .login-logout a {
+    font-size: 12px;
+  }
+
+  .login-button {
+    margin-top: 10%;
+  }
+
+  .main-body {
+    margin-top: 16%;
+  }
+
+  /* Flexbox to all the category sections */
+  .flex-grid {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .category-container {
+    width: 40%;
+  }
+
+  .categories {
+    list-style-type: none;
+    font-size: 20px;
+  }
+
+  .categories a {
+    font-size: 25px;
+    padding-bottom: 3%;
+  }
+
+  .photo {
+    width: 70%;
+    height: auto;
+  }
+
+  /* SECONDARY.HTML page */
+  /* Subcategory Title */
+  .title-secondary {
+    margin: 2em;
+    font-size: 28px;
+  }
+
+  /* Go Back button for navigation */
+  .go-back {
+    margin: 2%;
+    padding: 1em 2em;
+    font-size: 14px;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-self: flex-end;
+    padding: 0.3em 2em;
+  }
+
+  /* EXERCISES.HTML PAGE */
+  .exercise-list a {
+    font-size: 18px;
+  }
+
+  .add-button {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-self: flex-start;
+    font-size: 15px;
+    padding: 0.5em 2em;
+    margin-bottom: 4%;
+  }
+
+  /* PUBLICEXERCISEDESCRIPTION.HTML PAGE */
+  /* Main section housing the name, video, and description of exercise */
+  .exercise-main {
+    margin-top: -5%;
+    padding: 1.5em;
+    font-size: 28px;
+    width: 60%;
+  }
+
+  /* Exercise description */
+  .description {
+    font-size: 18px;
+  }
+
+  .embed-video {
+    width: 560px;
+    height: 315px;
+  }
+
+  /* EXERCISEDESCRIPTION.HTML PAGE */
+  .edit-exercise {
+    font-size: 14px;
+  }
+
+  .delete-exercise {
+    font-size: 14px;
+  }
+
+  .edit-delete-buttons {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+
+  /* ADDEXERCISE.HTML PAGE */
+  .add-edit-forms p {
+    font-size: 18px;
+    margin-left: 25%;
+    text-align: left;
+  }
+
+  .form-fields {
+    width: 50%;
+    font-size: 16px;
+  }
+
+  .form-button {
+    margin-top: 3%;
+  }
+
+  .cancel-button {
+    font-size: 18px;
+  }
+
+  /* LOGIN.HTML PAGE */
+  .signin-main {
+    margin: 5%;
+  }
+
+  .disclaimer-text {
+    font-size: 16px;
+  }
+
+}

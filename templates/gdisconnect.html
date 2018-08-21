@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Green Machine Exercises</title>
+
+    <!-- Adding in Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu" rel="stylesheet">
+
+    <!-- Setting the viewport for responsiveness -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linking CSS Stylesheet -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- External Javascript file -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/gdisconnect.js')}}"></script>
+</head>
+
+<body>
+
+  <main class="signin-main">
+
+    <!-- Thanks for visiting, confirming logout to user -->
+    <h2>{{ thanks }}</h2>
+    <h3>{{ response }}</h3>
+    <p>Redirecting...</p>
+    <p id="test"></p>
+
+  </main>
+
+</body>
+</html>
