@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 This is the main python application for the Exercise Catalog Application.
@@ -326,7 +326,7 @@ def login():
     """Render the login page, which prompts users to login with Google."""
     # Storing state token information.
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
-                    for x in xrange(32))
+                    for x in range(32))
     login_session['state'] = state
     return render_template('login.html', STATE=state)
 
@@ -366,12 +366,13 @@ def gconnect():
            % access_token
     )
     h = httplib2.Http()
-    result = json.loads(h.request(url, 'GET')[1])
+    result = json.loads(h.request(url, 'GET')[1].decode('utf8'))
+    # result = response.decode('utf8')
 
     """If there is an error in the access token info,
     then do not log in and return an error."""
     if result.get('error') is not None:
-        print "ERROR ERROR"
+        print("ERROR ERROR")
         r_json = 'error'
         error_code = 500
         r = 'Sorry, we cannot log you in.'
