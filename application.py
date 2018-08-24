@@ -367,7 +367,6 @@ def gconnect():
     )
     h = httplib2.Http()
     result = json.loads(h.request(url, 'GET')[1].decode('utf8'))
-    # result = response.decode('utf8')
 
     """If there is an error in the access token info,
     then do not log in and return an error."""
