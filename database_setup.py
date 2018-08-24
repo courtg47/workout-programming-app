@@ -115,20 +115,20 @@ class Equipment(Base):
     Stores all exercise equipment with an image.
     """
 
-     __tablename__ = 'equipment'
+    __tablename__ = 'equipment'
 
-     id = Column(Integer, Sequence('equipment_id'), primary_key=True)
-     name = Column(String(250), nullable=False)
-     image = Column(String(250))
+    id = Column(Integer, Sequence('equipment_id'), primary_key=True)
+    name = Column(String(250), nullable=False)
+    image = Column(String(250))
 
-     @property
-     def serialize(self):
-         """Return object data in serializable format for JSON endpoints."""
-         return {
-            'id': self.id
-            'name': self.name
-            'image': self.image
-         }
+    @property
+    def serialize(self):
+        """Return object data in serializable format for JSON endpoints."""
+        return {
+            'id': self.id,
+            'name': self.name,
+            'image': self.image,
+        }
 
 
 class Templates(Base):
@@ -142,16 +142,16 @@ class Templates(Base):
 
     id = Column(Integer, Sequence('template_id'), primary_key=True)
     name = Column(String(250), nullable=False)
-    template_type = Column(String(250), ForeignKey('template_type.id'))
+    template_type = Column(Integer, ForeignKey('template_type.id'))
     user_id = Column(Integer, ForeignKey('users.id'))
 
-     @property
-     def serialize(self):
-         """Return object data in serializable format for JSON endpoints."""
-         return {
-            'id': self.id
-            'name': self.name
-            'template_type': self.template_type
+    @property
+    def serialize(self):
+        """Return object data in serializable format for JSON endpoints."""
+        return {
+            'id': self.id,
+            'name': self.name,
+            'template_type': self.template_type,
          }
 
 
@@ -172,9 +172,9 @@ class TemplateType(Base):
     def serialize(self):
         """Return object data in serializable format for JSON endpoints."""
         return {
-            'id': self.id
-            'name': self.name
-            'description': self.description
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
         }
 
 
@@ -197,9 +197,9 @@ class TemplateItems(Base):
     def serialize(self):
         """Return object data in serializable format for JSON endpoints."""
         return {
-           'id': self.id
-           'name': self.name
-           'link': self.link
+           'id': self.id,
+           'name': self.name,
+           'link': self.link,
         }
 
 
