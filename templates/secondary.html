@@ -53,7 +53,9 @@
       <section class="flex-container category-container">
         <p class="categories secondary-categories"><a href="{{ url_for('show_exercises_in_category', primary_category_id = primary_id, secondary_id = i.id) }}">{{ i.name }}</a></p>
         </br>
-        <p class="categories secondary-categories">{{ i.description }}.</p>
+        <img src="{{ url_for('static', filename='' + i.picture ) }}" alt="{{ i.name }}" class="photo">
+        </br>
+        <p class="categories secondary-categories">{{ i.description }}</p>
         </br>
       </section>
       {% endfor %}

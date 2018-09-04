@@ -69,6 +69,7 @@ class SecondaryCategories(Base):
     name = Column(String(250), nullable=False)
     description = Column(Text)
     primary_category = Column(Integer, ForeignKey('primary_categories.id'))
+    picture = Column(Text)
 
     @property
     def serialize(self):
@@ -78,6 +79,7 @@ class SecondaryCategories(Base):
             'name': self.name,
             'description': self.description,
             'primary_category': self.primary_category,
+            'picture': self.picture
         }
 
 
@@ -96,7 +98,6 @@ class Exercises(Base):
     secondary_category = Column(Integer, ForeignKey('secondary_categories.id'))
     user_id = Column(Integer, ForeignKey('users.id'))
     user = relationship(Users)
-    equipment_id = Column(Integer, ForeignKey('equipment.id'))
 
     @property
     def serialize(self):
@@ -129,6 +130,21 @@ class Equipment(Base):
             'name': self.name,
             'image': self.image,
         }
+
+
+class ExerciseEquipmentReference(Base):
+    """Creates many-to-many relationships between exercises and equipment.
+
+    Connects individual exercises with individual pieces of equipment.
+    Many pieces of equipment can point to many exercises, and vice versa.
+    """
+
+    __tablename__ = 'exercise_equipment_reference'
+
+    id = Column(Integer, Sequence('reference_id'), primary_key=True)
+    exercise_id = Column(Integer, ForeignKey('exercises.id'), nullable=False)
+    equipment_id = Column(Integer, ForeignKey('equipment.id'), nullable=False)
+
 
 
 class Templates(Base):
@@ -176,7 +192,6 @@ class TemplateType(Base):
             'name': self.name,
             'description': self.description,
         }
-
 
 
 class TemplateItems(Base):
