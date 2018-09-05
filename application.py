@@ -209,7 +209,8 @@ def show_exercise_description(primary_category_id, secondary_id,
                                secondary_id=secondary_info,
                                exercise=exercise_info,
                                first_name=login_name(),
-                               creator=creator)
+                               creator=creator,
+                               equipment=equipment)
 
 
 @app.route('/exercises/<int:primary_category_id>/<int:secondary_id>/'

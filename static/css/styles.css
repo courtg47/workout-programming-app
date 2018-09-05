@@ -115,16 +115,16 @@ body {
 
 /* The flex properties of each individual category */
 .flex-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 /* Other styling of each individual category */
@@ -252,6 +252,8 @@ body {
   height: auto;
   margin-bottom: 5%;
 }
+
+
 
 /* EXERCISEDESCRIPTION.HTML PAGE */
 /* Edit exercise button */
@@ -421,6 +423,8 @@ body {
     margin-bottom: 10%;
   }
 
+
+
   /* EXERCISEDESCRIPTION.HTML PAGE */
   .edit-exercise {
     font-size: 16px;
@@ -526,14 +530,11 @@ body {
   .flex-grid {
     display: flex;
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
   .category-container {
     width: 40%;
@@ -621,8 +622,6 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
@@ -638,6 +637,7 @@ body {
     height: auto;
     margin: -13% 0 10% 0;
   }
+
 
   /* EXERCISEDESCRIPTION.HTML PAGE */
   .edit-exercise {
