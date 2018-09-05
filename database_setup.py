@@ -9,7 +9,7 @@ database with the Exercise Catalog app.
 
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String, Text, Sequence
+from sqlalchemy import Column, ForeignKey, Integer, String, Text, Sequence, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -144,6 +144,7 @@ class ExerciseEquipmentReference(Base):
     id = Column(Integer, Sequence('reference_id'), primary_key=True)
     exercise_id = Column(Integer, ForeignKey('exercises.id'), nullable=False)
     equipment_id = Column(Integer, ForeignKey('equipment.id'), nullable=False)
+    is_optional = Column(Boolean)
 
 
 

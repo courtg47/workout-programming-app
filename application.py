@@ -34,6 +34,8 @@ from database_setup import (
     PrimaryCategories,
     SecondaryCategories,
     Users,
+    Equipment,
+    ExerciseEquipmentReference,
 )
 
 import re
@@ -158,10 +160,32 @@ def show_exercise_description(primary_category_id, secondary_id,
         session.query(SecondaryCategories.id)
         .filter_by(id=secondary_id).one()
     )
+
     # Display exercise.
     exercise_info = (
         session.query(Exercises).filter_by(name=exercise_name).one()
     )
+
+    """
+    Extracting equipment ID from exercise_equipment_reference table based on
+    the exercise ID.
+    """
+    equipment_exercise_id = (
+        session.query(ExerciseEquipmentReference.equipment_id).filter_by(exercise_id=exercise_info.id).all()
+    )
+
+    equipment = []
+
+    for id in equipment_exercise_id:
+        id = id[0]
+
+        # Finding the name of the equipment from the equipment ID
+        equipment_details = (
+            session.query(Equipment).filter_by(id=id).one()
+        )
+
+        equipment.append(equipment_details)
+
 
     # Find the creator of the exercise.
     creator = get_user_info(exercise_info.user_id)
@@ -177,7 +201,8 @@ def show_exercise_description(primary_category_id, secondary_id,
         return render_template('publicExerciseDescription.html',
                                primary_category_id=primary.id,
                                secondary_id=secondary_info,
-                               exercise=exercise_info, creator=creator)
+                               exercise=exercise_info, creator=creator,
+                               equipment=equipment)
     else:
         return render_template('exerciseDescription.html',
                                primary_category_id=primary.id,

@@ -57,6 +57,13 @@
       <!-- Exercise Description -->
       <p class="description">{{ exercise.description }}</p>
 
+      <!-- Required Equipment for this exercise -->
+      <h4>Required Equipment:</h4>
+      {% for i in equipment %}
+      <p class="equipment">{{ i.name }}</p>
+      <img src="{{ url_for('static', filename='' + i.image ) }}" alt="{{ i.name }}" class="photo">
+      {% endfor %}
+      
     </section>
 
     <!-- Go back to previous page button -->
