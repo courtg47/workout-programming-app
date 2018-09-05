@@ -58,12 +58,15 @@
       <p class="description">{{ exercise.description }}</p>
 
       <!-- Required Equipment for this exercise -->
-      <h4>Required Equipment:</h4>
+      <h3 class="equipment-title">Required Equipment:</h3>
       {% for i in equipment %}
-      <p class="equipment">{{ i.name }}</p>
-      <img src="{{ url_for('static', filename='' + i.image ) }}" alt="{{ i.name }}" class="photo">
+      <section class="equipment-section">
+        <p class="equipment-names">{{ i.name }}</p>
+        <img src="{{ url_for('static', filename='' + i.image ) }}" alt="{{ i.name }}" class="equipment-photo">
+      <section>
       {% endfor %}
-      
+
+
     </section>
 
     <!-- Go back to previous page button -->
