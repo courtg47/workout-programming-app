@@ -690,4 +690,24 @@ body {
     font-size: 16px;
   }
 
+  /* ADD Exercise page */
+  .equipment-box {
+    border: 1px solid black;
+    width: 50%;
+    height: 40vh;
+    margin: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+
+  .equipment-piece {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+
+  .equipment-piece:target {
+    color: red;
+  }
+
 }

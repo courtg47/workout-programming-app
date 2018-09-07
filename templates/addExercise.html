@@ -57,6 +57,12 @@
       <p>YouTube Embed URL: </p>
         <input class="form-fields" type="text" name='video_url' required>
       </br>
+      <p>Equipment Needed:</p>
+      <section class="equipment-box">
+        {% for i in equipment %}
+        <p class="equipment-piece">{{ i.name }}</p>
+        {% endfor %}
+      </section>
       <input class="form-button button-styling" type='submit' value='Create'>
     </form>
     <!-- End Form -->

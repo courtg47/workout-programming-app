@@ -320,6 +320,9 @@ def add_exercise(primary_category_id, secondary_id):
     # SQLAlchemy query to identify secondary category to store new exercise in.
     name = session.query(SecondaryCategories).filter_by(id=secondary_id).one()
 
+    # Storing info of all equipment for user to select later.
+    equipment_list = session.query(Equipment).all()
+
     # If user is not logged in, redirect to the login page.
     if 'username' not in login_session:
         return redirect('/login')
@@ -331,7 +334,8 @@ def add_exercise(primary_category_id, secondary_id):
                       description=request.form['description'],
                       video_url=request.form['video_url'],
                       secondary_category=secondary_id,
-                      user_id=login_session['user_id'])
+                      user_id=login_session['user_id'],
+                      equipment=equipment_list)
         )
 
         session.add(new_exercise)
@@ -344,7 +348,8 @@ def add_exercise(primary_category_id, secondary_id):
         return render_template('addExercise.html',
                                category_name=name,
                                primary_category_id=primary_category_id,
-                               secondary_id=secondary_id)
+                               secondary_id=secondary_id,
+                               equipment=equipment_list)
 
 
 @app.route('/login')
